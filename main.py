@@ -13,6 +13,7 @@ FOLDER_PATH = config.FOLDER_PATH
 OUTPUT_PATH = config.OUTPUT_PATH
 JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
+ID_MACHINE = config.ID_MACHINE
 
 open_vnc_viewer(IP_MACHINE)
 open_matachana_tool() #TODO Configurar Backup_Matachana para armazenar log nesta pasta
@@ -26,14 +27,10 @@ ALARM_PATH = f'C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHu
 FILES = [join(ALARM_PATH, f) for f in listdir(ALARM_PATH) if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")]
 
 unify_txt(FILES, OUTPUT_PATH)
-variables = separate_variables(OUTPUT_PATH)
+variables = separate_variables(OUTPUT_PATH, ID_MACHINE)
 create_json(variables, JSON_PATH)
 
 # remove_folder(FOLDER_PATH)
 
 send_data(API_URL, JSON_PATH)
 search_data(API_URL)
-
-
-
-

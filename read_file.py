@@ -18,7 +18,8 @@ def unify_txt(files, OUTPUT_PATH):
                 f.write(line)      
     f.close()
 
-def separate_variables(file_path):
+
+def separate_variables(file_path, ID_MACHINE):
     with open(file_path, 'r') as data:
         lines = data.readlines()
         list_var = []
@@ -26,9 +27,10 @@ def separate_variables(file_path):
         for line in lines:
             variables = line.strip('\n').split(';')
             variables[3] = variables[3][0:3].strip(' ')
-            var = { "date":variables[0], "error":variables[3]}
+            var = {"id_machine":ID_MACHINE, "date":variables[0], "error":variables[3]}
             list_var.append(var)
     return list_var
+
 
 def create_json(variables, JSON_PATH):
     with open(JSON_PATH, 'w') as f:
