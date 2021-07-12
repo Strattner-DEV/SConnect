@@ -1,5 +1,6 @@
 import os, shutil
 import json
+import socket
 
 def unify_txt(files, OUTPUT_PATH):
     f = open(OUTPUT_PATH, 'w')   
@@ -19,7 +20,9 @@ def unify_txt(files, OUTPUT_PATH):
     f.close()
 
 
-def separate_variables(file_path, ID_MACHINE):
+def separate_variables(file_path):
+    ID_MACHINE = socket.gethostname()
+
     with open(file_path, 'r') as data:
         lines = data.readlines()
         list_var = []
@@ -34,7 +37,7 @@ def separate_variables(file_path, ID_MACHINE):
 
 def create_json(variables, JSON_PATH):
     with open(JSON_PATH, 'w') as f:
-        json.dump(variables, f, sort_keys=True, indent=3)
+        json.dump(variables, f, indent=3)
 
 
 def remove_folder(FOLDER_PATH):
