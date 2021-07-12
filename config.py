@@ -8,4 +8,4 @@ OUTPUT_PATH = 'C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHu
 JSON_PATH = 'C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHub\\SConnect\\data.json'
 
 #TODO Atualizar URL
-API_URL = "http://localhost:3002/api/test"
+API_URL = "http://localhost:3002/api/test1"
