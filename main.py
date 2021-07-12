@@ -18,10 +18,12 @@ ID_MACHINE = config.ID_MACHINE
 open_vnc_viewer(IP_MACHINE)
 open_matachana_tool() #TODO Configurar Backup_Matachana para armazenar log nesta pasta
 
+input()
+
 dir = os.listdir(FOLDER_PATH)
 FOLDER = dir[0]
 
-ALARM_PATH = f'C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHub\\SConnect\\backup\\{FOLDER}\\DATA\\ALARM'
+ALARM_PATH = f'{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM'
 
 # get the full names of all the txt files in your folder 
 FILES = [join(ALARM_PATH, f) for f in listdir(ALARM_PATH) if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")]
@@ -29,6 +31,8 @@ FILES = [join(ALARM_PATH, f) for f in listdir(ALARM_PATH) if isfile(join(ALARM_P
 unify_txt(FILES, OUTPUT_PATH)
 variables = separate_variables(OUTPUT_PATH, ID_MACHINE)
 create_json(variables, JSON_PATH)
+
+input()
 
 # remove_folder(FOLDER_PATH)
 

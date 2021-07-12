@@ -17,4 +17,4 @@ def open_matachana_tool():
     pyautogui.write("backup_")
     pyautogui.write("conf")
     pyautogui.press("enter")
-    pyautogui.click(4219, 768) #TODO Atualizar posição
+    pyautogui.click(639, 341)
