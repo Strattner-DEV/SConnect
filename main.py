@@ -13,33 +13,22 @@ FOLDER_PATH = config.FOLDER_PATH
 OUTPUT_PATH = config.OUTPUT_PATH
 JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
-ID_MACHINE = config.ID_MACHINE
-
 
 # open_vnc_viewer(IP_MACHINE)
-# open_matachana_tool() #TODO Configurar Backup_Matachana para armazenar log nesta pasta
-
-# input()
+# open_matachana_tool()
 
 dir = os.listdir(FOLDER_PATH)
 FOLDER = dir[0]
-
 ALARM_PATH = f'{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM'
 
 # get the full names of all the txt files in your folder 
-
 FILES = [join(ALARM_PATH, f) for f in listdir(ALARM_PATH) if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")]
 
 unify_txt(FILES, OUTPUT_PATH)
 variables = separate_variables(OUTPUT_PATH)
 create_json(variables, JSON_PATH)
 
-# input()
-
 # remove_folder(FOLDER_PATH)
 
-# send_data(API_URL, JSON_PATH)
-# search_data(API_URL)
-
-#? Adicionar loop com temporização
-#? Atualização remota?
+send_data(API_URL, JSON_PATH)
+search_data(API_URL)
