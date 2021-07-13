@@ -40,7 +40,7 @@ def unify_txt(files, OUTPUT_PATH):
     f.close()
 
 
-def separate_variables(file_path):
+def separate_variables(version, file_path):
     """separate_variables: Separate only the necessary information
 
     :param file_path: File path where the logs txt is saved
@@ -59,6 +59,7 @@ def separate_variables(file_path):
             variables[3] = variables[3][0:3].strip(" ")
             var = {
                 "id_machine": ID_MACHINE,
+                "firmware": version,
                 "date": variables[0],
                 "error": variables[3],
             }
@@ -93,3 +94,21 @@ def remove_folder(FOLDER_PATH):
                 shutil.rmtree(file_path)
         except Exception as e:
             print("Failed to delete %s. Reason: %s" % (file_path, e))
+
+def get_firmware(CONFIG_PATH):
+    """get_firmware Get the value of specific firmware version
+
+    :param CONFIG_PATH: Path to the config txt file
+    :type CONFIG_PATH: String
+    :return: Value of firmware version
+    :rtype: String
+    """
+    lines = open(CONFIG_PATH, "r").readlines()
+
+    for line in lines:
+        if line.find("Project number:") != -1:
+            var = line.strip("\n").split(" ")
+        else:
+            pass
+
+    return var[2]

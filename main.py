@@ -15,7 +15,13 @@ import config
 from os import listdir
 from os.path import isfile, join
 from automation import open_vnc_viewer, open_matachana_tool
-from read_file import unify_txt, separate_variables, create_json, remove_folder
+from read_file import (
+    get_firmware,
+    unify_txt,
+    separate_variables,
+    create_json,
+    remove_folder,
+)
 from post_request import search_data, send_data
 
 # * Defining Constants
@@ -33,6 +39,7 @@ open_matachana_tool()
 dir = os.listdir(FOLDER_PATH)
 FOLDER = dir[0]
 ALARM_PATH = f"{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM"
+CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
 
 # Get the full names of all the txt files in your folder
 FILES = [
@@ -42,7 +49,8 @@ FILES = [
 ]
 
 unify_txt(FILES, OUTPUT_PATH)
-variables = separate_variables(OUTPUT_PATH)
+version = get_firmware(CONFIG_PATH)
+variables = separate_variables(version, OUTPUT_PATH)
 create_json(variables, JSON_PATH)
 
 remove_folder(FOLDER_PATH)
