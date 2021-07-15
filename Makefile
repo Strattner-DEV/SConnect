@@ -11,18 +11,18 @@ run:
 	@echo "............ Finished ......................"
 
 install:
-	@echo ".......... Installing dependencies ............."
+	@echo ".......... Installing Dependencies ............."
 	pip install pyautogui
 	pip install requests
-	@echo "............ Finished ......................"
+	@echo "............ Finished .........................."
 
 format:
-	@echo "....... Formatting all the code ............"
+	@echo "........... Formatting ...................................."
 	black main.py read_file.py post_request.py config.py automation.py
-	@echo "............ Finished ......................"
+	@echo "............ Finished ......................................"
 
 clean:
-	@echo "........ Cleanning project ................"
+	@echo "........ Cleanning Project ................"
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
@@ -32,6 +32,6 @@ clean:
 	@echo "............ Finished ......................"
 
 test:
-	@echo ".......... Running test mode ..............."
+	@echo ".......... Running Test Mode ..............."
 	python test.py
 	@echo "............ Finished ......................"
