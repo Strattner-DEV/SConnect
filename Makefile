@@ -6,11 +6,11 @@ help:
 	@echo "test - run a minor version of the project"
 
 run: 
-	@echo "............ Running project ........."
+	@echo "............ Running project ..............."
 	python main.py 
 
 install:
-	@echo "...... Installing dependencies ............."
+	@echo ".......... Installing dependencies ............."
 	pip install pyautogui
 	pip install requests
 
@@ -19,6 +19,7 @@ format:
 	black main.py read_file.py post_request.py config.py automation.py
 
 clean:
+	@echo "........ Cleanning project ................"
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '*~' -exec rm -f {} +
@@ -27,4 +28,5 @@ clean:
 	find . -name 'output.txt' -exec rm -f {} +
 
 test:
+	@echo ".......... Running test mode ..............."
 	python test.py
