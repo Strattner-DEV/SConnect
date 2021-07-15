@@ -17,9 +17,9 @@ install:
 	@echo "............ Finished .........................."
 
 format:
-	@echo "........... Formatting ...................................."
-	black main.py read_file.py post_request.py config.py automation.py
-	@echo "............ Finished ......................................"
+	@echo "........... Formatting ............................................."
+	black main.py read_file.py post_request.py config.py automation.py test.py
+	@echo "............ Finished .............................................."
 
 clean:
 	@echo "........ Cleanning Project ................"
