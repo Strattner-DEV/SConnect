@@ -12,7 +12,7 @@ This project uses Makefile to automating some compilation and configuration proc
 
 ### Make commands
 
-- `make help` Get help from terminal whats every command has
+- `make help` Get help from terminal
 - `make install` Install all the dependencies that are necessary to the code to properly run
 - `make run` Runs the full project
 - `make test` Runs a minor version of the project for tests purposes
