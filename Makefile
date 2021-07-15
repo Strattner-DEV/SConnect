@@ -24,3 +24,6 @@ clean:
 	find . -name '__pycache__' -exec rm -fr {} +
 	find . -name '*.json' -exec rm -f {} +
 	find . -name 'output.txt' -exec rm -f {} +
+
+test:
+	python test.py
