@@ -8,15 +8,18 @@ help:
 run: 
 	@echo "............ Running project ..............."
 	python main.py 
+	@echo "............ Finished ......................"
 
 install:
 	@echo ".......... Installing dependencies ............."
 	pip install pyautogui
 	pip install requests
+	@echo "............ Finished ......................"
 
 format:
 	@echo "....... Formatting all the code ............"
 	black main.py read_file.py post_request.py config.py automation.py
+	@echo "............ Finished ......................"
 
 clean:
 	@echo "........ Cleanning project ................"
@@ -26,7 +29,9 @@ clean:
 	find . -name '__pycache__' -exec rm -fr {} +
 	find . -name '*.json' -exec rm -f {} +
 	find . -name 'output.txt' -exec rm -f {} +
+	@echo "............ Finished ......................"
 
 test:
 	@echo ".......... Running test mode ..............."
 	python test.py
+	@echo "............ Finished ......................"
