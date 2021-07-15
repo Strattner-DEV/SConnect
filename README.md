@@ -1,6 +1,6 @@
 # SConnect
 
-[Summary]
+Summary
 
 ## install.cmd
 
@@ -17,4 +17,4 @@ This project uses Makefile to automating some compilation and configuration proc
 - `make run` Runs the full project
 - `make test` Runs a minor version of the project for tests purposes
 - `make format` Format all the code to black format
-- `make clean` Removes all the files generated from execution of the project 
+- `make clean` Removes all the files generated from execution of the project
