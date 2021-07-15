@@ -1,6 +1,6 @@
 # SConnect
 
-[Summary] -> TODO
+[Summary]
 
 ## install.cmd
 
