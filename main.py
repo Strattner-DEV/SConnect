@@ -3,9 +3,6 @@
     Author: Bruno Cayres Messias <bruno.messias@strattner.com.br>
     Date: 07/13/2021
 
-    Revision: [DATE/NAME]
-    - 
-
 Description:
 First script to get information from tool Backup_Configuration
 """
@@ -32,8 +29,8 @@ JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
 
 # * Automation Part
-open_vnc_viewer(IP_MACHINE)
-open_matachana_tool()
+# open_vnc_viewer(IP_MACHINE)
+# open_matachana_tool()
 
 # * Read Files and managed folder part
 dir = os.listdir(FOLDER_PATH)
@@ -53,8 +50,8 @@ version = get_firmware(CONFIG_PATH)
 variables = separate_variables(version, OUTPUT_PATH)
 create_json(variables, JSON_PATH)
 
-remove_folder(FOLDER_PATH)
+# remove_folder(FOLDER_PATH)
 
 # * Send data part
-send_data(API_URL, JSON_PATH)
-search_data(API_URL)
+# send_data(API_URL, JSON_PATH)
+# search_data(API_URL)

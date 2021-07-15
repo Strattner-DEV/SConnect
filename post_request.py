@@ -3,9 +3,6 @@
     Author: Bruno Cayres Messias <bruno.messias@strattner.com.br>
     Date: 07/13/2021
 
-    Revision: [DATE/NAME]
-    - 
-
 Description:
 Library tha contain the codes to implement connection to the API defined
 """

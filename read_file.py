@@ -3,9 +3,6 @@
     Author: Bruno Cayres Messias <bruno.messias@strattner.com.br>
     Date: 07/13/2021
 
-    Revision: [DATE/NAME]
-    - 
-
 Description:
 Library contains all the functions to read and manage the files
 """
@@ -13,6 +10,7 @@ Library contains all the functions to read and manage the files
 import os, shutil
 import json
 import socket
+import uuid
 
 
 def unify_txt(files, OUTPUT_PATH):
@@ -54,6 +52,8 @@ def separate_variables(version, file_path):
         lines = data.readlines()
         list_var = []
 
+        hash_id = uuid.uuid4().hex
+
         for line in lines:
             variables = line.strip("\n").split(";")
             variables[3] = variables[3][0:3].strip(" ")
@@ -62,8 +62,10 @@ def separate_variables(version, file_path):
                 "firmware": version,
                 "date": variables[0],
                 "error": variables[3],
+                "id": hash_id,
             }
             list_var.append(var)
+
     return list_var
 
 
@@ -94,6 +96,7 @@ def remove_folder(FOLDER_PATH):
                 shutil.rmtree(file_path)
         except Exception as e:
             print("Failed to delete %s. Reason: %s" % (file_path, e))
+
 
 def get_firmware(CONFIG_PATH):
     """get_firmware Get the value of specific firmware version

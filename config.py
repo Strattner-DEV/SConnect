@@ -6,4 +6,4 @@ OUTPUT_PATH = "C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHu
 JSON_PATH = "C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHub\\SConnect\\data.json"
 
 # TODO Atualizar URL
-API_URL = "http://localhost:3002/api/test_api"
+API_URL = "http://192.168.1.136:8098/api/SmartConnect/SaveLog"

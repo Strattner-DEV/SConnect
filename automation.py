@@ -3,9 +3,6 @@
     Author: Bruno Cayres Messias <bruno.messias@strattner.com.br>
     Date: 07/13/2021
 
-    Revision: [DATE/NAME]
-    - 
-
 Description:
 Prototype of an automation script to make the routine of get the data from machine
 """
