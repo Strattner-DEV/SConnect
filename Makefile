@@ -1,8 +1,9 @@
 help:
-	@echo "run - run the code "
+	@echo "run - runs the full project "
 	@echo "install - install all dependecies"
 	@echo "format - format all the code"
 	@echo "clean - clean all the linker files"
+	@echo "test - run a minor version of the project"
 
 run: 
 	@echo "............ Running project ........."
