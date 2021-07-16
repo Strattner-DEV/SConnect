@@ -32,4 +32,9 @@ def send_data(API_URL, JSON_PATH):
     with open(JSON_PATH) as json_file:
         json_data = json.load(json_file)
 
-    requests.post(API_URL, json=json_data)
+    try:
+        return requests.post(API_URL, json=json_data, timeout=180)
+    except requests.exceptions.ReadTimeout:
+        return "Time Out!"
+    except requests.exceptions.ConnectionError:
+        return "Connection Refused!"
