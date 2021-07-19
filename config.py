@@ -1,8 +1,8 @@
 IP_MACHINE = "192.168.2.2"
 
 # TODO Atualizar Paths
-FOLDER_PATH = "C:\\Users\\strattner\\Desktop\\BACKUP"
-SCRIPT_PATH = "C:\\Users\\strattner\\Desktop\\SConnect-0.1.2"
+FOLDER_PATH = "C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHub\\SConnect\\backup"
+SCRIPT_PATH = "C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHub\\SConnect"
 
 #------------- Não Atualizar ------------------------
 OUTPUT_PATH = f"{SCRIPT_PATH}\\output.txt"
