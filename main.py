@@ -58,6 +58,6 @@ result = send_data(API_URL, JSON_PATH)
 if isinstance(result, str):
     print(result)
 
-# print(result.status_code)
-# if result.ok:
-#     result.close()
+print(result.status_code)
+if result.ok:
+    result.close()
