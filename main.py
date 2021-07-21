@@ -60,4 +60,8 @@ if isinstance(result, str):
 else:
     # print(result.status_code)
     if result.ok:
+        print("Successful Request!")
+        result.close()
+    else:
+        print("Bad Request!")
         result.close()
