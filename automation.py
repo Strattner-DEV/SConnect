@@ -19,9 +19,11 @@ def open_vnc_viewer(IP_MACHINE):
     :type IP_MACHINE: String
     """
     pyautogui.press("winleft")
-    pyautogui.write("ultravnc ")
-    pyautogui.write("viewer")
+    pyautogui.write("cmd")
     pyautogui.press("enter")
+    pyautogui.write("cd C:\\Program Files\\uvnc bvba\\UltraVNC")
+    pyautogui.press("enter")
+    pyautogui.write("start vncviewer.exe")
     pyautogui.write(IP_MACHINE)
     pyautogui.press("enter")
     # (Resolution 1024x768)
@@ -46,9 +48,14 @@ def open_vnc_viewer(IP_MACHINE):
 def open_matachana_tool():
     """open_matachana_tool Automation of tool that create the folder with the logs from machine"""
     pyautogui.press("winleft")
-    pyautogui.write("backup_")
-    pyautogui.write("conf")
+    pyautogui.write("cmd")
     pyautogui.press("enter")
+    pyautogui.write("cd C:\\Users\\bruno.messias\\Desktop\\v1.7.7")
     pyautogui.press("enter")
+    pyautogui.write("start Backup_Configuration.exe")
+    pyautogui.press("enter")
+    time.sleep(10) 
+    pyautogui.press("enter")
+    #pyautogui.press("enter")
     time.sleep(600)  # Delay of 10 min
     pyautogui.press("esc")
