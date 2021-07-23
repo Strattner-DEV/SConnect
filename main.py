@@ -29,7 +29,7 @@ JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
 
 # * Automation Part
-# open_vnc_viewer(IP_MACHINE)
+open_vnc_viewer(IP_MACHINE)
 # open_matachana_tool()
 
 # * Read Files and managed folder part
@@ -53,15 +53,15 @@ create_json(variables, JSON_PATH)
 # remove_folder(FOLDER_PATH)
 
 # * Send data part
-result = send_data(API_URL, JSON_PATH)
+# result = send_data(API_URL, JSON_PATH)
 
-if isinstance(result, str):
-    print(result)
-else:
-    # print(result.status_code)
-    if result.ok:
-        print("Successful Request!")
-        result.close()
-    else:
-        print("Bad Request!")
-        result.close()
+# if isinstance(result, str):
+#     print(result)
+# else:
+#     # print(result.status_code)
+#     if result.ok:
+#         print("Successful Request!")
+#         result.close()
+#     else:
+#         print("Bad Request!")
+#         result.close()

@@ -19,8 +19,11 @@ def open_vnc_viewer(IP_MACHINE):
     :type IP_MACHINE: String
     """
     pyautogui.press("winleft")
-    pyautogui.write("ultravnc ")
-    pyautogui.write("viewer")
+    pyautogui.write("cmd")
+    pyautogui.press("enter")
+    pyautogui.write("cd  C:\\Program Files (x86)\\uvnc bvba\\UltraVNC")
+    pyautogui.press("enter")
+    pyautogui.write("start vncviewer.exe")
     pyautogui.press("enter")
     pyautogui.write(IP_MACHINE)
     pyautogui.press("enter")
