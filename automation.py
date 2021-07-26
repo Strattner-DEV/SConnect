@@ -54,8 +54,8 @@ def open_matachana_tool():
     pyautogui.press("enter")
     pyautogui.write("start Backup_Configuration.exe")
     pyautogui.press("enter")
-    time.sleep(10) 
+    time.sleep(10)
     pyautogui.press("enter")
-    #pyautogui.press("enter")
+    # pyautogui.press("enter")
     time.sleep(600)  # Delay of 10 min
     pyautogui.press("esc")
