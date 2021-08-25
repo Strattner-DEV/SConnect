@@ -18,7 +18,7 @@ from read_file import (
     create_json,
     remove_folder,
 )
-from post_request import search_data, send_data
+from post_request import send_data
 
 # * Defining Constants
 IP_MACHINE = config.IP_MACHINE
