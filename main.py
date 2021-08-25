@@ -1,8 +1,6 @@
 """main.py
-
     Author: Bruno Cayres Messias <bruno.messias@strattner.com.br>
     Date: 07/13/2021
-
 Description:
 First script to get information from tool Backup_Configuration
 """
@@ -27,10 +25,13 @@ FOLDER_PATH = config.FOLDER_PATH
 OUTPUT_PATH = config.OUTPUT_PATH
 JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
+VNC_PATH = config.VNC_PATH
+BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
+PASSWORD = config.PASSWORD
 
 # * Automation Part
-# open_vnc_viewer(IP_MACHINE)
-# open_matachana_tool()
+open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD)
+open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH)
 
 # * Read Files and managed folder part
 dir = os.listdir(FOLDER_PATH)
