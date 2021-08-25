@@ -6,6 +6,7 @@ First script to get information from tool Backup_Configuration
 """
 import os
 import config
+import time
 
 from os import listdir
 from os.path import isfile, join
@@ -29,40 +30,45 @@ VNC_PATH = config.VNC_PATH
 BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
 PASSWORD = config.PASSWORD
 
-# * Automation Part
-open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD)
-open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH)
+time.sleep(5)
 
-# * Read Files and managed folder part
-dir = os.listdir(FOLDER_PATH)
-FOLDER = dir[0]
-ALARM_PATH = f"{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM"
-CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
+while True: 
+    # * Automation Part
+    open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD)
+    open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH)
 
-# Get the full names of all the txt files in your folder
-FILES = [
-    join(ALARM_PATH, f)
-    for f in listdir(ALARM_PATH)
-    if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
-]
+    # * Read Files and managed folder part
+    dir = os.listdir(FOLDER_PATH)
+    FOLDER = dir[0]
+    ALARM_PATH = f"{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM"
+    CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
 
-unify_txt(FILES, OUTPUT_PATH)
-version = get_firmware(CONFIG_PATH)
-variables = separate_variables(version, OUTPUT_PATH)
-create_json(variables, JSON_PATH)
+    # Get the full names of all the txt files in your folder
+    FILES = [
+        join(ALARM_PATH, f)
+        for f in listdir(ALARM_PATH)
+        if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
+    ]
 
-# remove_folder(FOLDER_PATH)
+    unify_txt(FILES, OUTPUT_PATH)
+    version = get_firmware(CONFIG_PATH)
+    variables = separate_variables(version, OUTPUT_PATH)
+    create_json(variables, JSON_PATH)
 
-# * Send data part
-result = send_data(API_URL, JSON_PATH)
+    # remove_folder(FOLDER_PATH)
 
-if isinstance(result, str):
-    print(result)
-else:
-    # print(result.status_code)
-    if result.ok:
-        print("Successful Request!")
-        result.close()
+    # * Send data part
+    result = send_data(API_URL, JSON_PATH)
+
+    if isinstance(result, str):
+        print(result)
     else:
-        print("Bad Request!")
-        result.close()
+        # print(result.status_code)
+        if result.ok:
+            print("Successful Request!")
+            result.close()
+        else:
+            print("Bad Request!")
+            result.close()
+
+    time.sleep(14400)

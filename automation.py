@@ -9,7 +9,6 @@ import time
 
 pyautogui.PAUSE = 1
 
-
 def open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD):
     """open_vnc_viewer Routine to open the UltraVNC and preparate to get the logs
     :param IP_MACHINE: IP of machine to connect
@@ -49,12 +48,12 @@ def open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH):
     pyautogui.press("enter")
     pyautogui.write("start Backup_Configuration.exe")
     pyautogui.press("enter")
-    time.sleep(5)
+    time.sleep(10)
     pyautogui.click(536, 257)
     pyautogui.hotkey('ctrl', 'a')
     pyautogui.write(IP_MACHINE)
     pyautogui.press("enter")
-    time.sleep(10)  # Delay of 10 min
+    time.sleep(600)  # Delay of 10 min
     pyautogui.press("esc")
     pyautogui.click(574, 262)
     pyautogui.write("exit")
