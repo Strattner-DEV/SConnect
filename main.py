@@ -55,7 +55,7 @@ while True:
     variables = separate_variables(version, OUTPUT_PATH)
     create_json(variables, JSON_PATH)
 
-    # remove_folder(FOLDER_PATH)
+    remove_folder(FOLDER_PATH)
 
     # * Send data part
     result = send_data(API_URL, JSON_PATH)
@@ -63,7 +63,6 @@ while True:
     if isinstance(result, str):
         print(result)
     else:
-        # print(result.status_code)
         if result.ok:
             print("Successful Request!")
             result.close()
