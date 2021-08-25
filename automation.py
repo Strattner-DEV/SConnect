@@ -20,7 +20,7 @@ def open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD):
     pyautogui.press("enter")
     pyautogui.write(f"cd {VNC_PATH}")
     pyautogui.press("enter")
-    pyautogui.write("vncviewer.exe -connect {IP_MACHINE} -password 93486 -scale 250/100")
+    pyautogui.write(f"vncviewer.exe -connect {IP_MACHINE} -password 93486 -scale 250/100")
     pyautogui.press("enter")
     # (Resolution 1024x768)
     pyautogui.click(499, 423)
