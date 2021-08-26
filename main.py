@@ -32,14 +32,15 @@ BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
 PASSWORD = config.PASSWORD
 
 pyautogui.click(1019, 746)
-time.sleep(5)
+time.sleep(3)
 
 while True:
+
     pyautogui.alert(
-        "Automation will Begin, please do not use the computer in the next 20 mins",
-        "Automation SmartConnect",
-        timeout=10000,
-    )
+    "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 20 mins",
+    "Automation SmartConnect",
+    timeout=10000)
+    
     # * Automation Part
     open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD)
     open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH)
@@ -51,7 +52,7 @@ while True:
     CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
 
     exists = os.path.exists(ALARM_PATH)
-
+    
     if exists:
         # Get the full names of all the txt files in your folder
         FILES = [

@@ -26,4 +26,8 @@ def open_vnc(IP_MACHINE, VNC_PATH, PASSWORD):
     pyautogui.write(PASSWORD)
     pyautogui.press("enter")
 
+pyautogui.click(1019, 746)
 open_vnc(IP_MACHINE, VNC_PATH, PASSWORD)
+pyautogui.click(942, 222)
+pyautogui.write("exit")
+pyautogui.press("enter")
