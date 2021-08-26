@@ -43,31 +43,36 @@ while True:
     ALARM_PATH = f"{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM"
     CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
 
-    # Get the full names of all the txt files in your folder
-    FILES = [
-        join(ALARM_PATH, f)
-        for f in listdir(ALARM_PATH)
-        if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
-    ]
+    exists = os.path.exists(ALARM_PATH)
+    
+    if exists:
+        # Get the full names of all the txt files in your folder
+        FILES = [
+            join(ALARM_PATH, f)
+            for f in listdir(ALARM_PATH)
+            if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
+        ]
 
-    unify_txt(FILES, OUTPUT_PATH)
-    version = get_firmware(CONFIG_PATH)
-    variables = separate_variables(version, OUTPUT_PATH)
-    create_json(variables, JSON_PATH)
+        unify_txt(FILES, OUTPUT_PATH)
+        version = get_firmware(CONFIG_PATH)
+        variables = separate_variables(version, OUTPUT_PATH)
+        create_json(variables, JSON_PATH)
 
-    remove_folder(FOLDER_PATH)
+        remove_folder(FOLDER_PATH)
 
-    # * Send data part
-    result = send_data(API_URL, JSON_PATH)
+        # * Send data part
+        result = send_data(API_URL, JSON_PATH)
 
-    if isinstance(result, str):
-        print(result)
-    else:
-        if result.ok:
-            print("Successful Request!")
-            result.close()
+        if isinstance(result, str):
+            print(result)
         else:
-            print("Bad Request!")
-            result.close()
+            if result.ok:
+                print("Successful Request!")
+                result.close()
+            else:
+                print("Bad Request!")
+                result.close()
+    else:
+        print("Nothing to send")
 
     time.sleep(14400)

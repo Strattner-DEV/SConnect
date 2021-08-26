@@ -32,13 +32,20 @@ ALARM_PATH = f"{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM"
 CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
 
 # Get the full names of all the txt files in your folder
-FILES = [
-    join(ALARM_PATH, f)
-    for f in listdir(ALARM_PATH)
-    if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
-]
 
-unify_txt(FILES, OUTPUT_PATH)
-version = get_firmware(CONFIG_PATH)
-variables = separate_variables(version, OUTPUT_PATH)
-create_json(variables, JSON_PATH)
+exists = os.path.exists(ALARM_PATH)
+
+if exists:
+
+    FILES = [
+        join(ALARM_PATH, f)
+        for f in listdir(ALARM_PATH)
+        if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
+    ]
+
+    unify_txt(FILES, OUTPUT_PATH)
+    version = get_firmware(CONFIG_PATH)
+    variables = separate_variables(version, OUTPUT_PATH)
+    create_json(variables, JSON_PATH)
+else:
+    print("Nothing to send")
