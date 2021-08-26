@@ -7,6 +7,7 @@ First script to get information from tool Backup_Configuration
 import os
 import config
 import time
+import pyautogui
 
 from os import listdir
 from os.path import isfile, join
@@ -30,7 +31,7 @@ VNC_PATH = config.VNC_PATH
 BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
 PASSWORD = config.PASSWORD
 
-time.sleep(5)
+pyautogui.alert("Automation will Begin, please do not use the computer in the next 20 mins", "Automation SmartConnect", timeout=10000)
 
 while True: 
     # * Automation Part

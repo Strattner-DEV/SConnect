@@ -8,6 +8,7 @@ First script to get information from tool Backup_Configuration
 """
 import os
 import config
+import pyautogui
 
 from os import listdir
 from os.path import isfile, join
@@ -24,6 +25,8 @@ FOLDER_PATH = config.FOLDER_PATH
 OUTPUT_PATH = config.OUTPUT_PATH
 JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
+
+pyautogui.alert("Automation will Begin, please do not use the computer in the next 20 mins", "Automation SmartConnect", timeout=10000)
 
 # * Read Files and managed folder part
 dir = os.listdir(FOLDER_PATH)
