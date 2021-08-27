@@ -12,6 +12,11 @@ def open_vnc(IP_MACHINE, VNC_PATH, PASSWORD):
     :param IP_MACHINE: IP of machine to connect
     :type IP_MACHINE: String
     """
+    pyautogui.alert(
+    "Automation will Begin, and do not use the computer in the next 5 mins",
+    "Automation SmartConnect",
+    timeout=10000)
+    
     pyautogui.hotkey("winleft", "r")
     pyautogui.write("cmd")
     pyautogui.press("enter")
@@ -31,3 +36,7 @@ open_vnc(IP_MACHINE, VNC_PATH, PASSWORD)
 pyautogui.click(942, 222)
 pyautogui.write("exit")
 pyautogui.press("enter")
+
+pyautogui.alert(
+    "Automation Finished! Click OK and Continue",
+    "Automation SmartConnect")
