@@ -68,6 +68,7 @@ while True:
 
         remove_folder(FOLDER_PATH)
 
+<<<<<<< Updated upstream
         # * Send data part
         result = send_data(API_URL, JSON_PATH)
 
@@ -80,6 +81,15 @@ while True:
             else:
                 print("Bad Request!")
                 result.close()
+=======
+if isinstance(result, str):
+    print(result)
+else:
+    print(result.status_code)
+    if result.ok:
+        print("Successful Request!")
+        result.close()
+>>>>>>> Stashed changes
     else:
         print("Nothing to send")
 
