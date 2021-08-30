@@ -30,6 +30,7 @@ VNC_PATH = config.VNC_PATH
 BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
 PASSWORD = config.PASSWORD
 TRY = config.TRY
+
 # -------------Put here all the IPs ----------------
 IP_MACHINE_0 = "192.168.3.182"
 IP_MACHINE_1 = "192.168.3.185"
