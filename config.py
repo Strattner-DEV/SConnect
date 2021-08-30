@@ -1,5 +1,7 @@
-IP_MACHINE = "192.168.3.182"
+IP_MACHINE_0 = "192.168.3.182"
+IP_MACHINE_1 = "192.168.3.185"
 PASSWORD = "d559044db3932bc4"
+TRY = 2
 
 # TODO Atualizar Paths
 FOLDER_PATH = "C:\\Users\\Hospital\\Desktop\\BACKUP"
