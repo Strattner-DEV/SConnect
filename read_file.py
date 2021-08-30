@@ -48,7 +48,6 @@ def separate_variables(version, file_path, index):
     """
     ID_MACHINE = socket.gethostname() + "_" + str(index)
 
-
     with open(file_path, "r") as data:
         lines = data.readlines()
         list_var = []

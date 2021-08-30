@@ -36,10 +36,10 @@ IP_MACHINE_0 = "192.168.3.182"
 IP_MACHINE_1 = "192.168.3.185"
 # --------------------------------------------------
 
-ip_list =[]
+ip_list = []
 
 for i in range(TRY):
-    ip = locals()["IP_MACHINE_"+str(i)]
+    ip = locals()["IP_MACHINE_" + str(i)]
     ip_list.append(ip)
 
 print(ip_list)
@@ -49,13 +49,14 @@ time.sleep(3)
 
 while True:
     index = 0
-    for i in ip_list: 
+    for i in ip_list:
 
         pyautogui.alert(
-        "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 20 mins",
-        "Automation SmartConnect",
-        timeout=10000)
-        
+            "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 20 mins",
+            "Automation SmartConnect",
+            timeout=10000,
+        )
+
         # * Automation Part
         open_vnc_viewer(i, VNC_PATH, PASSWORD)
         open_matachana_tool(i, BACKUP_CONF_PATH)
@@ -67,7 +68,7 @@ while True:
         CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
 
         exists = os.path.exists(ALARM_PATH)
-        
+
         if exists:
             # Get the full names of all the txt files in your folder
             FILES = [
