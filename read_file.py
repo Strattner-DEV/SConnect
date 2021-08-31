@@ -56,15 +56,21 @@ def separate_variables(version, file_path):
 
         for line in lines:
             variables = line.strip("\n").split(";")
-            variables[3] = variables[3][0:3].strip(" ")
-            var = {
-                "id_machine": ID_MACHINE,
-                "firmware": version,
-                "date": variables[0],
-                "error": variables[3],
-                "id": hash_id,
-            }
-            list_var.append(var)
+
+            try:
+                variables[3] = variables[3][0:3].strip(" ")
+
+                var = {
+                    "id_machine": ID_MACHINE,
+                    "firmware": version,
+                    "date": variables[0],
+                    "error": variables[3],
+                    "id": hash_id,
+                }
+
+                list_var.append(var)
+            except:
+                pass
 
     return list_var
 
