@@ -36,6 +36,7 @@ def open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD):
     pyautogui.click(503, 175)
     pyautogui.click(691, 487)
     pyautogui.click(853, 680)
+    time.sleep(3)
     pyautogui.click(499, 507)
     pyautogui.click(888, 46)
     pyautogui.click(574, 262)
