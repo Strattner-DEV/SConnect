@@ -57,7 +57,7 @@ while True:
             timeout=10000,
         )
 
-        print(PASSWORD)
+        # print(PASSWORD)
 
         # * Automation Part
         open_vnc_viewer(i, VNC_PATH, PASSWORD)
