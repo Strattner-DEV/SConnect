@@ -9,6 +9,9 @@ import time
 
 pyautogui.PAUSE = 1
 
+def password():
+    password = pyautogui.password(text='Atualização da senha secundária', title='Smart Connect Automation', default='', mask='*')
+    return password
 
 def open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD):
     """open_vnc_viewer Routine to open the UltraVNC and preparate to get the logs

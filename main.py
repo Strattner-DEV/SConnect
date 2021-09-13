@@ -33,7 +33,7 @@ TRY = config.TRY
 
 # -------------Put here all the IPs ----------------
 IP_MACHINE_0 = "192.168.3.182"
-IP_MACHINE_1 = "192.168.3.185"
+IP_MACHINE_1 = "192.168.3.182"
 # --------------------------------------------------
 
 ip_list = []
@@ -52,10 +52,12 @@ while True:
     for i in ip_list:
 
         pyautogui.alert(
-            "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 20 mins",
+            "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 30 mins",
             "Automation SmartConnect",
             timeout=10000,
         )
+
+        print(PASSWORD)
 
         # * Automation Part
         open_vnc_viewer(i, VNC_PATH, PASSWORD)
@@ -77,7 +79,7 @@ while True:
                 if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
             ]
 
-            unify_txt(FILES, OUTPUT_PATH)
+            # unify_txt(FILES, OUTPUT_PATH)
             version = get_firmware(CONFIG_PATH)
             variables = separate_variables(version, OUTPUT_PATH, index)
             create_json(variables, JSON_PATH)

@@ -38,7 +38,7 @@ def unify_txt(files, OUTPUT_PATH):
     f.close()
 
 
-def separate_variables(version, file_path):
+def separate_variables(version, file_path, index):
     """separate_variables: Separate only the necessary information
 
     :param file_path: File path where the logs txt is saved
@@ -46,7 +46,7 @@ def separate_variables(version, file_path):
     :return: List of the necessary parameters in dict format
     :rtype: List
     """
-    ID_MACHINE = socket.gethostname()
+    ID_MACHINE = socket.gethostname() + "_" + str(index)
 
     with open(file_path, "r") as data:
         lines = data.readlines()
