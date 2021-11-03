@@ -18,12 +18,14 @@ from read_file import (
     separate_variables,
     create_json,
     remove_folder,
+    sort_files,
 )
 from post_request import send_data
 
 # * Defining Constants
 FOLDER_PATH = config.FOLDER_PATH
 OUTPUT_PATH = config.OUTPUT_PATH
+SORTED_PATH = config.SORTED_PATH
 JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
 VNC_PATH = config.VNC_PATH
@@ -79,9 +81,15 @@ while True:
                 if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
             ]
 
-            # unify_txt(FILES, OUTPUT_PATH)
+            unify_txt(FILES, OUTPUT_PATH)
+
+            # * Filter the variables
+            sort_files(SORTED_PATH, OUTPUT_PATH)
+
+            # * Read the file and separate variables
             version = get_firmware(CONFIG_PATH)
-            variables = separate_variables(version, OUTPUT_PATH, index)
+            variables = separate_variables(version, SORTED_PATH, index)
+
             create_json(variables, JSON_PATH)
 
             remove_folder(FOLDER_PATH)

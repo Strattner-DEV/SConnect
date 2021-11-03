@@ -16,6 +16,7 @@ BACKUP_CONF_PATH = (
 
 # ------------- Não Atualizar ------------------------
 OUTPUT_PATH = f"{SCRIPT_PATH}\\output.txt"
+SORTED_PATH = f"{SCRIPT_PATH}\\sorted.txt"
 JSON_PATH = f"{SCRIPT_PATH}\\data.json"
 # ----------------------------------------------------
 

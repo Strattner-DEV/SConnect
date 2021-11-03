@@ -121,3 +121,21 @@ def get_firmware(CONFIG_PATH):
             pass
 
     return var[2]
+
+
+def sort_files(sorted_path, file_path):
+    """sort_files: Sort the files in the sorted_path
+
+    :param sorted_path: Path where the sorted files are gonna be saved
+    :type sorted_path: String
+    :param file_path: Path where the files are gonna be sorted
+    :type file_path: String
+    """
+    lines_seen = set()  # holds lines already seen
+    outfile = open(sorted_path, "w")
+    for line in open(file_path, "r"):
+        if line not in lines_seen:  # not a duplicate
+            lines_seen.add(line)
+
+    outfile.writelines(sorted(lines_seen))
+    outfile.close()
