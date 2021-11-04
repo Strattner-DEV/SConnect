@@ -22,6 +22,8 @@ from read_file import (
 )
 from post_request import send_data
 
+pyautogui.FAILSAFE = False
+
 # * Defining Constants
 IP_MACHINE = config.IP_MACHINE
 FOLDER_PATH = config.FOLDER_PATH
@@ -33,7 +35,7 @@ VNC_PATH = config.VNC_PATH
 BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
 PASSWORD = config.PASSWORD
 
-pyautogui.click(1019, 746)
+pyautogui.click(636, 458)
 time.sleep(3)
 
 while True:

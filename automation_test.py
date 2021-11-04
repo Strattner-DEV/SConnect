@@ -1,13 +1,16 @@
-"""automation.py
-    Author: Bruno Cayres Messias <bruno.messias@strattner.com.br>
-    Date: 07/13/2021
-Description:
-Prototype of an automation script to make the routine of get the data from machine
-"""
 import pyautogui
 import time
 
 pyautogui.PAUSE = 1
+
+IP_MACHINE = "192.168.8.247"
+PASSWORD = "d559044db3932bc4"
+
+FOLDER_PATH = "C:\\Users\\STRATTNER\\Desktop\\BACKUP"
+SCRIPT_PATH = "C:\\Users\\STRATTNER\\Desktop\\SCRIPTS"
+VNC_PATH = "C:\\Program Files (x86)\\uvnc bvba\\UltraVNC"
+BACKUP_CONF_PATH = "C:\\Users\\STRATTNER\\Desktop\\Backup_v1.6.6\\Backup_v1.6.6\\Backup_v1.6.6\\dist"
+
 
 def open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD):
     """open_vnc_viewer Routine to open the UltraVNC and preparate to get the logs
@@ -57,8 +60,14 @@ def open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH):
     pyautogui.hotkey("ctrl", "a")
     pyautogui.write(IP_MACHINE)
     pyautogui.press("enter")
-    time.sleep(2000)  # Delay of 33 min
+    time.sleep(2000)  # Delay of 30 min
     pyautogui.press("esc")
     pyautogui.click(556, 234) #CLick on terminal
     pyautogui.write("exit")
     pyautogui.press("enter")
+
+pyautogui.click(636, 458)
+time.sleep(3)
+
+# open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD)
+open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH)
