@@ -18,69 +18,80 @@ from read_file import (
     separate_variables,
     create_json,
     remove_folder,
+    sort_files,
 )
 from post_request import send_data
 
 # * Defining Constants
-# IP_MACHINE = config.IP_MACHINE
-# FOLDER_PATH = config.FOLDER_PATH
-# OUTPUT_PATH = config.OUTPUT_PATH
+IP_MACHINE = config.IP_MACHINE
+FOLDER_PATH = config.FOLDER_PATH
+OUTPUT_PATH = config.OUTPUT_PATH
+SORTED_PATH = config.SORTED_PATH
 JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
-# VNC_PATH = config.VNC_PATH
-# BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
-# PASSWORD = config.PASSWORD
+VNC_PATH = config.VNC_PATH
+BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
+PASSWORD = config.PASSWORD
 
-# pyautogui.click(1019, 746)
-# time.sleep(3)
+pyautogui.click(1019, 746)
+time.sleep(3)
 
-# while True:
+while True:
 
-    # pyautogui.alert(
-    # "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 20 mins",
-    # "Automation SmartConnect",
-    # timeout=10000)
-    
+    pyautogui.alert(
+        "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 20 mins",
+        "Automation SmartConnect",
+        timeout=10000,
+    )
+
     # * Automation Part
-    # open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD)
-    # open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH)
+    open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD)
+    open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH)
 
     # * Read Files and managed folder part
-    # dir = os.listdir(FOLDER_PATH)
-    # FOLDER = dir[0]
-    # ALARM_PATH = f"{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM"
-    # CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
+    dir = os.listdir(FOLDER_PATH)
+    FOLDER = dir[0]
+    ALARM_PATH = f"{FOLDER_PATH}\\{FOLDER}\\DATA\\ALARM"
+    CONFIG_PATH = f"{FOLDER_PATH}\\{FOLDER}\\CONFIG\\Import.txt"
 
-    # exists = os.path.exists(ALARM_PATH)
-    
-    # if exists:
-    #     # Get the full names of all the txt files in your folder
-    #     FILES = [
-    #         join(ALARM_PATH, f)
-    #         for f in listdir(ALARM_PATH)
-    #         if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
-    #     ]
+    exists = os.path.exists(ALARM_PATH)
 
-        # unify_txt(FILES, OUTPUT_PATH)
-        # version = get_firmware(CONFIG_PATH)
-        # variables = separate_variables(version, OUTPUT_PATH)
-        # create_json(variables, JSON_PATH)
+    if exists:
+        # Get the full names of all the txt files in your folder
+        FILES = [
+            join(ALARM_PATH, f)
+            for f in listdir(ALARM_PATH)
+            if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
+        ]
 
-        # remove_folder(FOLDER_PATH)
+        unify_txt(FILES, OUTPUT_PATH)
 
-# * Send data part
-result = send_data(API_URL, JSON_PATH)
+        # * Filter the variables
+        sort_files(SORTED_PATH, OUTPUT_PATH)
 
-if isinstance(result, str):
-    print(result)
-else:
-    if result.ok:
-        print("Successful Request!")
-        result.close()
+        # * Read the file and separate variables
+        version = get_firmware(CONFIG_PATH)
+        variables = separate_variables(version, SORTED_PATH)
+        create_json(variables, JSON_PATH)
+
+        remove_folder(FOLDER_PATH)
+
+        # * Send data part
+        print("Sending Data...")
+        result = send_data(API_URL, JSON_PATH)
+        print(result)
+
+        if isinstance(result, str):
+            print(result)
+        else:
+            if result.ok:
+                print("Successful Request!")
+                result.close()
+            else:
+                print("Bad Request!")
+                result.close()
     else:
-        print("Bad Request!")
-        result.close()
-    # else:
-    #     print("Nothing to send")
+        remove_folder(FOLDER_PATH)
+        print("Nothing to send")
 
-    # time.sleep(14400)
+    time.sleep(14400)
