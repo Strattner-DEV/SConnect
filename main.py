@@ -33,7 +33,7 @@ VNC_PATH = config.VNC_PATH
 BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
 PASSWORD = config.PASSWORD
 
-pyautogui.click(636, 458)
+pyautogui.click(1019, 746)
 time.sleep(3)
 
 while True:
