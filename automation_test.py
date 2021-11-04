@@ -30,7 +30,7 @@ def open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD):
     pyautogui.write(PASSWORD)
     pyautogui.press("enter")
 
-    pyautogui.click(325, 279) #Servide Data
+    pyautogui.click(325, 279) # Service Data
     pyautogui.click(525, 405) # Pass
     pyautogui.click(525, 405) # Pass
     pyautogui.click(431, 337) # Machine Backup to CF

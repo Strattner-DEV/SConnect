@@ -1,4 +1,4 @@
-
+IP_MACHINE = "192.168.2.2"
 PASSWORD = "d559044db3932bc4"
 
 # TODO Atualizar Paths
