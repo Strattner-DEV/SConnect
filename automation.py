@@ -57,7 +57,7 @@ def open_matachana_tool(IP_MACHINE, BACKUP_CONF_PATH):
     pyautogui.hotkey("ctrl", "a")
     pyautogui.write(IP_MACHINE)
     pyautogui.press("enter")
-    time.sleep(600)  # Delay of 10 min
+    time.sleep(1800)  # Delay of 30 min
     pyautogui.press("esc")
     pyautogui.click(574, 262)
     pyautogui.write("exit")

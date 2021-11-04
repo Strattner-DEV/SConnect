@@ -33,13 +33,13 @@ VNC_PATH = config.VNC_PATH
 BACKUP_CONF_PATH = config.BACKUP_CONF_PATH
 PASSWORD = config.PASSWORD
 
-pyautogui.click(1019, 746)
+pyautogui.click(636, 458)
 time.sleep(3)
 
 while True:
 
     pyautogui.alert(
-        "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 20 mins",
+        "Automation will Begin, please CLOSE ALL vnc windows, and do not use the computer in the next 30 mins",
         "Automation SmartConnect",
         timeout=10000,
     )
