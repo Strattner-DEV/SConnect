@@ -9,6 +9,7 @@ import time
 
 pyautogui.PAUSE = 1
 
+
 def open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD):
     """open_vnc_viewer Routine to open the UltraVNC and preparate to get the logs
     :param IP_MACHINE: IP of machine to connect
@@ -23,7 +24,7 @@ def open_vnc_viewer(IP_MACHINE, VNC_PATH, PASSWORD):
         f"vncviewer.exe -connect {IP_MACHINE} -password 93486 -scale 250/100"
     )
     pyautogui.press("enter")
-    # (Resolution 1024x768)
+    #! (Resolution 1024x768)
     pyautogui.click(499, 423)
     pyautogui.write(PASSWORD)
     pyautogui.press("enter")

@@ -139,3 +139,25 @@ def sort_files(sorted_path, file_path):
 
     outfile.writelines(sorted(lines_seen))
     outfile.close()
+
+
+def remove_last_part(file_path, output_path):
+    """remove_last_part: Remove the last part of the file
+
+    :param file_path: Path to the file that is gonna be removed
+    :type file_path: String
+    :param output_path: Path where the file is gonna be saved
+    :type output_path: String
+    """
+
+    f = open(output_path, "w")
+
+    with open(file_path, "r") as data:
+        lines = data.readlines()
+
+        for line in lines:
+            variables = line.strip("\n").split(" ")
+            line = variables[0] + " " + variables[1] + "\n"
+            f.write(line)
+
+    f.close()
