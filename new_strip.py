@@ -1,7 +1,8 @@
-IP_MACHINE = "192.168.2.2"
-PASSWORD = "d559044db3932bc4"
+import os, shutil
+import json
+import socket
+import uuid
 
-# TODO Atualizar Paths
 FOLDER_PATH = "C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHub\\SConnect\\backup"
 SCRIPT_PATH = (
     "C:\\Users\\bruno.messias\\OneDrive - Strattner\\Documentos\\GitHub\\SConnect"
@@ -14,8 +15,21 @@ BACKUP_CONF_PATH = (
 # ------------- Não Atualizar ----------------------------------
 OUTPUT_PATH = f"{SCRIPT_PATH}\\output.txt"
 SORTED_PATH = f"{SCRIPT_PATH}\\sorted.txt"
+REMOVE_PATH = f"{SCRIPT_PATH}\\remove.txt"
 JSON_PATH = f"{SCRIPT_PATH}\\data.json"
-REMOVED_PATH = f"{SCRIPT_PATH}\\removed.txt"
 
-API_URL = "http://192.168.1.136:8098/api/SmartConnect/SaveLog"
-# ---------------------------------------------------------------
+def remove_last_part(file_path, output_path):
+
+    f = open(output_path, "w")
+
+    with open(file_path, "r") as data:
+        lines = data.readlines()
+ 
+        for line in lines:
+            variables = line.strip("\n").split(" ")
+            line = (variables[0] + " " + variables[1] + "\n")
+            f.write(line)
+
+    f.close()
+
+remove_last_part(SORTED_PATH, REMOVE_PATH)

@@ -12,6 +12,7 @@ import pyautogui
 from os import listdir
 from os.path import isfile, join
 from automation import open_vnc_viewer, open_matachana_tool
+from new_strip import REMOVE_PATH
 from read_file import (
     get_firmware,
     unify_txt,
@@ -19,6 +20,7 @@ from read_file import (
     create_json,
     remove_folder,
     sort_files,
+    remove_last_part,
 )
 from post_request import send_data
 
@@ -26,6 +28,7 @@ from post_request import send_data
 IP_MACHINE = config.IP_MACHINE
 FOLDER_PATH = config.FOLDER_PATH
 OUTPUT_PATH = config.OUTPUT_PATH
+REMOVED_PATH = config.REMOVED_PATH
 SORTED_PATH = config.SORTED_PATH
 JSON_PATH = config.JSON_PATH
 API_URL = config.API_URL
@@ -64,10 +67,14 @@ while True:
             if isfile(join(ALARM_PATH, f)) and f.endswith(".txt")
         ]
 
+        # * Unify all files
         unify_txt(FILES, OUTPUT_PATH)
 
+        # # Removed not sended data
+        remove_last_part(OUTPUT_PATH, REMOVE_PATH)
+
         # * Filter the variables
-        sort_files(SORTED_PATH, OUTPUT_PATH)
+        sort_files(SORTED_PATH, REMOVE_PATH)
 
         # * Read the file and separate variables
         version = get_firmware(CONFIG_PATH)
